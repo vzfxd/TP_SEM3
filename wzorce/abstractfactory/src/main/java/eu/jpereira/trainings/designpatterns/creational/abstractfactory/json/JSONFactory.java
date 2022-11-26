@@ -5,19 +5,20 @@ import eu.jpereira.trainings.designpatterns.creational.abstractfactory.ReportBod
 import eu.jpereira.trainings.designpatterns.creational.abstractfactory.ReportFooter;
 import eu.jpereira.trainings.designpatterns.creational.abstractfactory.ReportHeader;
 
-public class JSONFactory implements AbstractFactory {
+public class JSONFactory extends AbstractFactory {
+
     @Override
-    public ReportHeader createHeader() {
+    public ReportHeader getHeader() {
         return new JSONReportHeader();
     }
 
     @Override
-    public ReportBody createBody() {
+    public ReportBody getBody() {
         return new JSONReportBody();
     }
 
     @Override
-    public ReportFooter createFooter() {
+    public ReportFooter getFooter() {
         return new JSONReportFooter();
     }
 }

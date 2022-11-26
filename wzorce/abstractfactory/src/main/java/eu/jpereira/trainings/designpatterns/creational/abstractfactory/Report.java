@@ -33,13 +33,11 @@ public class 	Report {
 
 	
 	
-	/**
-	 * @param string
-	 */
+
 	public Report(AbstractFactory factory) {
-		this.setBody(factory.createBody());
-		this.setFooter(factory.createFooter());
-		this.setHeader(factory.createHeader());
+		this.setBody(factory.getBody());
+		this.setFooter(factory.getFooter());
+		this.setHeader(factory.getHeader());
 	}
 
 
