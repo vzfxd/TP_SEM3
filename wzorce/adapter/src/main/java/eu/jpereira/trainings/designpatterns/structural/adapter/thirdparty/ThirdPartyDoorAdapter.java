@@ -11,13 +11,13 @@ public class ThirdPartyDoorAdapter extends ThirdPartyDoor implements Door {
     @Override
     public void open(String code) throws IncorrectDoorCodeException {
         try {
-            super.unlock(code);
+            unlock(code);
         }catch (CannotUnlockDoorException e) {
             throw new IncorrectDoorCodeException(e);
         }
 
         try {
-            super.setState(DoorState.OPEN);
+            setState(DoorState.OPEN);
         } catch (CannotChangeStateOfLockedDoor e) {
             throw new IncorrectDoorCodeException(e);
         }
@@ -27,7 +27,7 @@ public class ThirdPartyDoorAdapter extends ThirdPartyDoor implements Door {
     @Override
     public void close(){
         try {
-            super.setState(DoorState.CLOSED);
+            setState(DoorState.CLOSED);
         } catch (CannotChangeStateOfLockedDoor e) {
             System.out.println("Door is already closed");
         }
@@ -45,7 +45,7 @@ public class ThirdPartyDoorAdapter extends ThirdPartyDoor implements Door {
         if(!newCode.equals(newCodeConfirmation)) throw new CodeMismatchException();
 
         try {
-            super.setNewLockCode(newCode);
+            setNewLockCode(newCode);
         } catch (CannotChangeCodeForUnlockedDoor e) {
             throw new RuntimeException();
         }
